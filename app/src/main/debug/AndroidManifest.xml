@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.routerdemo">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".App"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        tools:replace="android:name"
+        android:theme="@style/Theme.RouterDemo">
+        <activity android:name=".ui.WebViewAty"/>
+        <activity android:name=".ui.SixActivity" />
+        <activity android:name=".ui.FiveActivity" />
+        <activity android:name=".ui.SecondActivity" />
+        <activity android:name=".ui.FirstAty" />
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".scheme.SchemeFilterActivity">
+            <intent-filter>
+                <action android:name="com.example.route" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="test.example.com"
+                    android:scheme="arouter" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

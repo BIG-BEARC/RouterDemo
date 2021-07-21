@@ -1,0 +1,27 @@
+apply from: "../module.build.gradle"
+
+android {
+    defaultConfig {
+        if (isBuildModule.toBoolean()){
+            applicationId "com.example.module_two"
+        }
+    }
+    //统一资源前缀，规范资源引用
+    resourcePrefix "two_"
+}
+
+dependencies {
+
+    implementation rootProject.ext.androidx["androidx-appcompat"]
+    implementation rootProject.ext.androidx["androidx.constraintlayout"]
+    implementation rootProject.ext.androidx["android.material"]
+    implementation rootProject.ext.androidx["androidx.navigation-fragment"]
+    implementation rootProject.ext.androidx["androidx.navigation-ui"]
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation rootProject.ext.androidx["junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.ext-junit"]
+    androidTestImplementation rootProject.ext.androidx["androidx.test.espresso:espresso-core"]
+
+    implementation project(':lib-common')
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+}
